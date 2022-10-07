@@ -1,0 +1,13 @@
+@API_URL = https://stugmaklaren.azurewebsites.net/
+
+@Local_URL = https://localhost:8080
+
+### Posta en service
+
+POST {{@Local_URL}}/
+Content-Type: application/json
+
+{
+        "service": "Städa WC och Bastu",
+        "description": "Städa både WC och Bastun. Allt skuras"
+}

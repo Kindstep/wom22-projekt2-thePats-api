@@ -1,0 +1,47 @@
+@API_URL = https://stugmaklaren.azurewebsites.net/
+
+### Kolla bokningar
+
+GET {{@API_URL}}/bookings
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzJjMTlhODFlZmRlNjNjZjZhMjQzNmIiLCJlbWFpbCI6ImpvbmFzLmRlZ21hbkBhcmNhZGEuZmkiLCJpYXQiOjE2NjM4NDAzNzUsImV4cCI6MTY2NjQzMjM3NX0.EkYdmCykpOs7wX4bFCOZUnHA1P8PFMr-8y9w4C3srFk
+
+### Kolla om datumet är ledigt
+
+GET {{@API_URL}}/bookings/booking
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzJjMTlhODFlZmRlNjNjZjZhMjQzNmIiLCJlbWFpbCI6ImpvbmFzLmRlZ21hbkBhcmNhZGEuZmkiLCJpYXQiOjE2NjM4NDAzNzUsImV4cCI6MTY2NjQzMjM3NX0.EkYdmCykpOs7wX4bFCOZUnHA1P8PFMr-8y9w4C3srFk
+
+{
+    "cabinName": "Villa Ballabulla",
+    "dateFrom": "2022-10-02",
+    "dateTo": "2022-10-03"
+}
+
+### Ny bokning
+
+POST {{@API_URL}}/bookings
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzJjMTlhODFlZmRlNjNjZjZhMjQzNmIiLCJlbWFpbCI6ImpvbmFzLmRlZ21hbkBhcmNhZGEuZmkiLCJpYXQiOjE2NjM4NDAzNzUsImV4cCI6MTY2NjQzMjM3NX0.EkYdmCykpOs7wX4bFCOZUnHA1P8PFMr-8y9w4C3srFk
+
+{
+    "cabinName": "Villa Ballabulla",
+    "dateFrom": "2022-11-04",
+    "dateTo": "2022-11-15"
+}
+
+### Uppdatera bokning (använd bokningens id)
+
+PATCH {{@API_URL}}/bookings/633432c855ac132dc8354ab0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzJjMTlhODFlZmRlNjNjZjZhMjQzNmIiLCJlbWFpbCI6ImpvbmFzLmRlZ21hbkBhcmNhZGEuZmkiLCJpYXQiOjE2NjM4NDAzNzUsImV4cCI6MTY2NjQzMjM3NX0.EkYdmCykpOs7wX4bFCOZUnHA1P8PFMr-8y9w4C3srFk
+
+{
+    "cabinName": "Villa Ballabulla",
+    "dateFrom": "2022-10-28",
+    "dateTo": "2022-11-15"
+}
+
+### Radera bokning (använd bokningens id)
+
+DELETE {{@API_URL}}/bookings/6333ddf363086aabdd0bbc4b
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzJjMTlhODFlZmRlNjNjZjZhMjQzNmIiLCJlbWFpbCI6ImpvbmFzLmRlZ21hbkBhcmNhZGEuZmkiLCJpYXQiOjE2NjM4NDAzNzUsImV4cCI6MTY2NjQzMjM3NX0.EkYdmCykpOs7wX4bFCOZUnHA1P8PFMr-8y9w4C3srFk
