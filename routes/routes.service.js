@@ -5,29 +5,6 @@ const db = require("../models");
 const Service = db.services;
 const Op = db.Sequelize.Op;
 
-module.exports = app => {
-    const services = require("../controllers/service.controller");
-  
-    var router = require("express").Router();
-  
-    // Create a new service
-    router.post("/", services.create);
-  
-    // Retrieve all services
-    router.get("/", services.findAll);
-  
-    // Retrieve a single service with id
-    router.get("/:id", services.findOne);
-  
-    // Update a service with id
-    router.put("/:id", services.update);
-  
-    // Delete a service with id
-    router.delete("/:id", services.delete);
-  
-    app.use('/api/services', router);
-  };
-
   //SERVICES
 
 // Ny Service
@@ -141,3 +118,5 @@ await Order.destroy({
     });
   });
 });
+
+module.exports = router;

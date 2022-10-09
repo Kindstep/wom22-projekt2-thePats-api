@@ -1,10 +1,10 @@
 @API_URL = https://stugmaklaren.azurewebsites.net/
 
-@Local_URL = https://localhost:8080
+@Local_URL = https://localhost:3030
 
 ### Posta en service
 
-POST {{@Local_URL}}/
+POST {{@Local_URL}}/services
 Content-Type: application/json
 
 {
