@@ -2,17 +2,29 @@ const express = require('express'),
     router = express.Router();
 
 const db = require("../models");
-const Order = db.orders;
-const Op = db.Sequelize.Op;
-
+const Order = db.order;
 
 //ORDERS
 
 // Ny Order
 router.post("/", async (req, res) => {
-    if (!req.body.title) {
+    if (!req.body.date) {
         res.status(400).send({
-          message: "Content can not be empty!"
+          message: "Date can not be empty!"
+        });
+        return;
+      }
+
+      if (!req.body.cabin) {
+        res.status(400).send({
+          message: "Cabin can not be empty!"
+        });
+        return;
+      }
+
+      if (!req.body.service) {
+        res.status(400).send({
+          message: "Service can not be empty!"
         });
         return;
       }
@@ -38,9 +50,12 @@ router.post("/", async (req, res) => {
         });
 });
 
-//sök alla orders
+//sök alla orders eller sök alla orders från db enligt datum
 router.get("/",async (req, res) => {
-    await Order.findAll().then(data => {
+  const date = req.query.date;
+  const condition = date ? { date: date } : null;
+
+    await Order.findAll({ where: condition }).then(data => {
      res.send(data);
    })
    .catch(err => {
@@ -50,23 +65,6 @@ router.get("/",async (req, res) => {
      });
      });
     });
-
-// Sök alla orders från db enligt datum.
-router.get("/",async (req, res) => {
-    const date = req.query.date;
-    var condition = date ? { date: { [Op.iLike]: `%${date}%` } } : null;
-
-    await Order.findAll({ where: condition })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving orders."
-      });
-    });
-});
 
 // Sök en order med id
 router.get("/:id", async (req, res) => {

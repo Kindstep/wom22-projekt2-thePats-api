@@ -11,11 +11,10 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to the Underhållningstjänst för the Stugor." });
 });
 
-require("./models")
-require("./routes/routes.order.js");
+const orderRouter = require("./routes/routes.order");
+app.use('/orders', orderRouter)
 
-
-const serviceRouter = require("./routes/routes.service.js");
+const serviceRouter = require("./routes/routes.service");
 app.use('/services', serviceRouter);
 
 // set port, listen for requests
