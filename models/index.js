@@ -15,5 +15,4 @@ db.sequelize = sequelize;
 db.order = require("./maintenance.order.js")(sequelize, Sequelize);
 db.service = require("./maintenance.service.js")(sequelize, Sequelize);
 
-
 module.exports = db;

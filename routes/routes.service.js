@@ -2,14 +2,14 @@ const express = require('express'),
     router = express.Router();
 
 const db = require("../models");
-const Service = db.services;
+const Service = db.service;
 const Op = db.Sequelize.Op;
 
   //SERVICES
 
 // Ny Service
 router.post("/", async (req, res) => {
-  if (!req.body.title) {
+  if (!req.body.service) {
       res.status(400).send({
         message: "Content can not be empty!"
       });

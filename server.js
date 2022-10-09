@@ -13,7 +13,10 @@ app.get("/", (req, res) => {
 
 require("./models")
 require("./routes/routes.order.js");
-require("./routes/routes.service.js");
+
+
+const serviceRouter = require("./routes/routes.service.js");
+app.use('/services', serviceRouter);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3030;
