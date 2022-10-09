@@ -2,7 +2,8 @@
 
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "update-database": "node database.js"
   },
   "name": "wom22-projekt2-thepats-api",
   "description": "",
