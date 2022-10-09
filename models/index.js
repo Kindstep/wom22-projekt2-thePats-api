@@ -9,10 +9,7 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 
 const db = {};
 
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
-
-db.order = require("./maintenance.order.js")(sequelize, Sequelize);
-db.service = require("./maintenance.service.js")(sequelize, Sequelize);
+db.order = require("./maintenance.order")(sequelize, Sequelize);
+db.service = require("./maintenance.service")(sequelize, Sequelize);
 
 module.exports = db;
