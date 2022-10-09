@@ -1,58 +1,57 @@
 const express = require('express'),
-    router = express.Router();
+  router = express.Router();
 
 const db = require("../models");
 const Service = db.service;
-const Op = db.Sequelize.Op;
 
-  //SERVICES
+//SERVICES
 
 // Ny Service
 router.post("/", async (req, res) => {
   if (!req.body.service) {
-      res.status(400).send({
-        message: "Content can not be empty!"
-      });
-      return;
-    }
-  
-    // Gör en service
-    const service = {
-      service: req.body.service,
-      description: req.body.description
-    };
-  
-    // Spara service i db
-   await Service.create(service)
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "An error occurred while creating the service. Try Again later."
-        });
-      });
-  });
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+    return;
+  }
 
-  //sök alla services
-  router.get("/",async (req, res) => {
+  // Gör en service
+  const service = {
+    service: req.body.service,
+    description: req.body.description
+  };
+
+  // Spara service i db
+  await Service.create(service)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "An error occurred while creating the service. Try Again later."
+      });
+    });
+});
+
+//sök alla services
+router.get("/", async (req, res) => {
   await Service.findAll().then(data => {
-   res.send(data);
- })
- .catch(err => {
-   res.status(500).send({
-     message:
-       err.message || "Some error occurred while retrieving services."
-   });
-   });
-  });
+    res.send(data);
+  })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving services."
+      });
+    });
+});
 
 // Sök en service med id
-router.get("/:id",async (req, res) => {
+router.get("/:id", async (req, res) => {
   const id = req.params.id;
 
- await Service.findByPk(id)
+  await Service.findByPk(id)
     .then(data => {
       if (data) {
         res.send(data);
@@ -70,7 +69,7 @@ router.get("/:id",async (req, res) => {
 });
 
 // Uppdatera en service med id
-router.put("/:id",async (req, res) => {
+router.put("/:id", async (req, res) => {
   const id = req.params.id;
 
   Service.update(req.body, {
@@ -95,28 +94,28 @@ router.put("/:id",async (req, res) => {
 });
 
 // Radera en service med id
-router.delete("/:id",async (req, res) => {
+router.delete("/:id", async (req, res) => {
   const id = req.params.id;
 
-await Order.destroy({
-  where: { id: id }
-})
-  .then(num => {
-    if (num == 1) {
-      res.send({
-        message: "Service was deleted successfully!"
-      });
-    } else {
-      res.send({
-        message: `Cannot delete service with id=${id}. Maybe service was not found!`
-      });
-    }
+  await Order.destroy({
+    where: { id: id }
   })
-  .catch(err => {
-    res.status(500).send({
-      message: "Could not delete service with id=" + id
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "Service was deleted successfully!"
+        });
+      } else {
+        res.send({
+          message: `Cannot delete service with id=${id}. Maybe service was not found!`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Could not delete service with id=" + id
+      });
     });
-  });
 });
 
 module.exports = router;
