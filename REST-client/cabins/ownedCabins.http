@@ -1,0 +1,5 @@
+@API_URL = https://stugmaklaren.azurewebsites.net/
+
+
+GET {{API_URL}}/cabins/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzJjMTlhODFlZmRlNjNjZjZhMjQzNmIiLCJlbWFpbCI6ImpvbmFzLmRlZ21hbkBhcmNhZGEuZmkiLCJpYXQiOjE2NjM4NDAzNzUsImV4cCI6MTY2NjQzMjM3NX0.EkYdmCykpOs7wX4bFCOZUnHA1P8PFMr-8y9w4C3srFk
