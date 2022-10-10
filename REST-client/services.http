@@ -35,4 +35,4 @@ Content-Type: application/json
 
 ### Delete service by specific ID
 
-DELETE {{Local_URL}}/orders/{{Service_Id}}
+DELETE {{Local_URL}}/services/{{Service_Id}}

@@ -5,6 +5,9 @@
 # Service ID (insert ID here to change 
 @Service_Id = 2
 
+# Insert service date here (YYYY-MM-DD)
+@Service_Date = 2022-12-24
+
 ### Post an order
 
 POST {{Local_URL}}/orders
@@ -22,7 +25,7 @@ GET {{Local_URL}}/orders
 
 ### Get orders with a date
 
-GET {{Local_URL}}/orders?date=2022-12-23
+GET {{Local_URL}}/orders?date={{Service_Date}}
 
 ### Get a order with specific ID
 
