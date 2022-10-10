@@ -3,7 +3,7 @@
 @Local_URL = http://localhost:3030
 
 # TODO: change to an existing service ID
-@Test_Service_ID = 1
+@Service_Id = 1
 
 ### Posta en service
 
@@ -21,14 +21,18 @@ GET {{Local_URL}}/services
 
 ### Get a service with specific ID
 
-GET {{Local_URL}}/services/{{Test_Service_ID}}
+GET {{Local_URL}}/services/{{Service_Id}}
 
 ### Update a service
 
-PUT {{Local_URL}}/services/{{Test_Service_ID}}
+PUT {{Local_URL}}/services/{{Service_Id}}
 Content-Type: application/json
 
 {
         "service": "Städa WC och Bastu 2",
         "description": "Städa både WC och Bastun. Allt skuras"
 }
+
+### Delete service by specific ID
+
+DELETE {{Local_URL}}/orders/{{Service_Id}}
