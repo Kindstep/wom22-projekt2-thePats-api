@@ -2,37 +2,39 @@
 
 @Local_URL = http://localhost:3030
 
+@API_Service = https://stugtjansterab.azurewebsites.net
+
 # TODO: change to an existing service ID
-@Service_Id = 1
+@Service_Id = 3
 
 ### Posta en service
 
-POST {{Local_URL}}/services
+POST {{API_Service}}/services
 Content-Type: application/json
 
 {
-        "service": "Städa WC och Bastu",
-        "description": "Städa både WC och Bastun. Allt skuras"
+        "service": "Sotning av skorsten",
+        "description": "Sotning"
 }
 
 ### Get services
 
-GET {{Local_URL}}/services
+GET {{API_Service}}/services
 
 ### Get a service with specific ID
 
-GET {{Local_URL}}/services/{{Service_Id}}
+GET {{API_Service}}/services/{{Service_Id}}
 
 ### Update a service
 
-PUT {{Local_URL}}/services/{{Service_Id}}
+PUT {{API_Service}}/services/{{Service_Id}}
 Content-Type: application/json
 
 {
-        "service": "Städa WC och Bastu 2",
-        "description": "Städa både WC och Bastun. Allt skuras"
+        "service": "Klipp gräset",
+        "description": "Gräsklippning"
 }
 
 ### Delete service by specific ID
 
-DELETE {{Local_URL}}/services/{{Service_Id}}
+DELETE {{API_Service}}/services/{{Service_Id}}

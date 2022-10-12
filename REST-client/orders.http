@@ -1,6 +1,8 @@
 @API_URL = https://stugmaklaren.azurewebsites.net/
 
-@Local_URL = http://localhost:3030
+@API_Service = https://stugtjansterab.azurewebsites.net
+
+@API_Local = http://localhost:3030
 
 # Service ID (insert ID here to change 
 @Service_Id = 2
@@ -10,30 +12,30 @@
 
 ### Post an order
 
-POST {{Local_URL}}/orders
+POST {{API_Service}}/orders
 Content-Type: application/json
 
 {
         "date": "2022-12-24",
-        "cabin": "Cabin 1",
+        "cabin": "Villa Ballabulla",
         "service": "Städa WC och Bastu"
 }
 
 ### Get orders
 
-GET {{Local_URL}}/orders
+GET {{API_Service}}/orders
 
 ### Get orders with a date
 
-GET {{Local_URL}}/orders?date={{Service_Date}}
+GET {{API_Service}}/orders?date={{Service_Date}}
 
 ### Get a order with specific ID
 
-GET {{Local_URL}}/orders/{{Service_Id}}
+GET {{API_Service}}/orders/{{Service_Id}}
 
 ### Update a order
 
-PUT {{Local_URL}}/orders/{{Service_Id}}
+PUT {{API_Service}}/orders/{{Service_Id}}
 Content-Type: application/json
 
 {
@@ -43,4 +45,4 @@ Content-Type: application/json
 
 ### Delete order by specific ID
 
-DELETE {{Local_URL}}/orders/{{Service_Id}}
+DELETE {{API_Service}}/orders/{{Service_Id}}
