@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/b23e6194-6e86-4b33-a42c-b4719e63cb8a/AppServices/subscriptions/b23e6194-6e86-4b33-a42c-b4719e63cb8a/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/StugtjansterAB",
+    "appService.deploySubpath": "."
+}
